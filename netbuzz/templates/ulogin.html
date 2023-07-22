@@ -1,0 +1,120 @@
+{% extends 'layout_second.html' %}
+{% load static %}
+{% load socialaccount %}
+
+{% block title %}
+    Sign In - NetBuzz
+{% endblock %}
+
+{% block script %}
+    <link rel="shortcut icon" href="{% static 'Images/favi.ico' %}">
+{% endblock %}
+
+{% block body %}
+    <div class="user-box">
+        <div>
+            <center>
+                <img src="{% static 'Images/auth_icon.png' %}" height="79em" style="margin-bottom: 2vh;">
+                <h3>Log in to NetBuzz</h3><br>
+            </center>
+        </div>
+    
+        <form action="{% url 'ulogin' %}" method="post" id="signin-form" style="width: 100%;margin-bottom: 5vh;">
+            {% csrf_token %}
+            <div class="form-group">
+                <input class="form-control inp usrnm" type="text" name="username" placeholder="Username" autocomplete="off" autofocus>
+            </div>
+            <div class="form-group">
+                <input class="form-control inp pswd" type="password" name="password" placeholder="Password" autocomplete="off">
+                <span class="star"><small>{{message}}</small></span>
+            </div>
+            <center>
+                <input class="btn btn-primary" type="submit" value="Log in" style="margin-top: 10px; width: 95%;" disabled>
+
+                <div class="container">
+                    <a href = "{% provider_login_url 'google' %}">
+                        <div class="g-sign-in-button">
+                            <div class="content-wrapper">
+                                <div class="logo-wrapper">
+                                    <img src="https://developers.google.com/identity/images/g-logo.png">
+                                </div>
+                                <span class="text-container">
+                                    <span>Log in with Google</span>
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </center>   
+        </form>
+    <br><br>
+        <div>
+            <center>
+                Don't have an account?&nbsp;&nbsp;<a href="{% url 'usignup' %}">Sign Up</a>
+            </center>
+        </div>
+    </div>
+
+    <style>
+        .g-sign-in-button {
+            position: absolute;
+            transform: translate(-50%, 50%);
+            display: inline-block;
+            width: 380px;
+            height: 42px;
+            color: black;
+            border: 2px solid #e6ecf0;
+            border-radius: 30px;
+            transition: background-color .218s, border-color .218s, box-shadow .218s;
+        }
+
+        .g-sign-in-button:hover {
+            cursor: pointer;
+            box-shadow: 0 0 3px rgba(66, 133, 244, .3);
+        }
+
+        .g-sign-in-button .content-wrapper {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .g-sign-in-button img {
+            width: 20px;
+            height: 20px;
+        }
+
+        .g-sign-in-button .logo-wrapper {
+            padding: 5px;
+            background: #fff;
+            width: 48px;
+            height: 100%;  
+        }
+
+        .g-sign-in-button .text-container {
+            font-family: "Roboto", arial, sans-serif;
+            font-weight: 500;
+            letter-spacing: .21px;
+            line-height: 48px;
+            vertical-align: top;
+        }
+    </style>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            document.querySelectorAll(".inp").forEach(input => {
+                input.addEventListener('input', () => {
+                    if ((document.querySelector('.usrnm').value.length === 0) || (document.querySelector('.pswd').value.length === 0)) {
+                        document.querySelector('input[type="submit"]').disabled = true;
+                    }
+                    else {
+                        document.querySelector('input[type="submit"]').disabled = false;
+                    }
+                });
+            });
+        });
+    </script>
+
+{% endblock %}
