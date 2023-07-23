@@ -19,3 +19,5 @@ Tech Stack:
 6. Django
 7. SQLite3
 
+## Live Demo
+Check out the project: http://13.233.206.67/
