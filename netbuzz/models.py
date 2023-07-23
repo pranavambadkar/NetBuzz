@@ -39,7 +39,7 @@ class Post(models.Model):
 
 class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
-    comments = models.ForeignKey(User, on_delete=models.CASCADE, related_name='commenters')
+    commenter = models.ForeignKey(User, on_delete=models.CASCADE, related_name='commenters')
     comment_content = models.TextField(max_length=90)
     comment_time = models.DateTimeField(default=timezone.now)
 
