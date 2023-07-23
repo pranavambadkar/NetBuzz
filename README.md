@@ -1,6 +1,6 @@
 # NetBuzz
 
-NetBuzz is an innovative social media web application that has revolutionized the way people connect, communicate, and share their thoughts and ideas online. It is similar to Twitter.
+NetBuzz is an innovative social media web application that has revolutionized the way people connect, communicate, and share their thoughts and ideas online. It is similar to Twitter. This project includes the OAuth using Google.
 
 Key Features: 
 1. Create and customize Posts
