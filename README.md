@@ -21,6 +21,7 @@ Tech Stack:
 
 ## Live Demo
 Check out the project: http://13.233.206.67/
+Second Link if first link is not Working: https://netbuzz.pythonanywhere.com/
 
 ## Project Outputs
 
